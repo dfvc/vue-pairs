@@ -1,0 +1,16 @@
+// 1. Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+@import url('https://fonts.googleapis.com/css?family=Amaranth');
+
+// Add a serif family
+$family-serif: 'Amaranth', sans-serif;
+
+// Use the new serif family
+$family-primary: $family-serif;
+
+// 5. Add new color variables to the color map.
+@import "~bulma/sass/utilities/derived-variables.sass";
+
+// 6. Import the rest of Bulma
+@import "~bulma";

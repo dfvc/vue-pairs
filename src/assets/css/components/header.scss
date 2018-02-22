@@ -1,0 +1,51 @@
+main {
+    padding-top: 117px;
+}
+
+.game-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+
+    &__middle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 16px 0;
+
+        &--right {
+
+            .button {
+                border-radius: 0;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+    }
+
+    &__progress {
+        border-radius: 0;
+
+        &::-webkit-progress-value {
+            transition: width .25s ease;
+
+            background-color: $secondary;
+        }
+
+        &.progress {
+            margin-bottom: 0;
+        }
+    }
+
+    &__pairs-left {
+
+        &.tag {
+            border-radius: 0;
+        }
+    }
+}
