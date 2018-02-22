@@ -182,7 +182,7 @@
 
             checkGameOver() {
                 if (this.updateGameProgress() === 100) {
-                    this.showLoader();
+                    //this.showLoader();
                 }
             },
 
