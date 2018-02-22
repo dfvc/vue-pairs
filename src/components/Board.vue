@@ -8,8 +8,9 @@
     </section>
 </template>
 
+
 <script>
-    import CardHolder from './CardHolder.vue'
+    import CardHolder from './CardHolder.vue';
 
     export default {
         components: {
@@ -195,6 +196,7 @@
         }
     }
 </script>
+
 
 <style lang="scss">
 
