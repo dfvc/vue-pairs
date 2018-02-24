@@ -7,6 +7,7 @@
         <main>
             <board></board>
             <settings></settings>
+            <stats></stats>
         </main>
     </div>
 </template>
@@ -16,6 +17,7 @@
     import PageLoader from './components/PageLoader.vue';
     import GameHeader from './components/GameHeader.vue';
     import Settings from './components/Settings.vue';
+    import Stats from './components/Stats.vue';
     import Board from './components/Board.vue';
 
     export default {
@@ -25,6 +27,7 @@
             PageLoader,
             GameHeader,
             Settings,
+            Stats,
             Board
         }
     }

@@ -4,10 +4,16 @@
     }
 }
 
-.settings-body {
-    * {
-        border-radius: 0;
+.settings-header {
+    background-color: $secondary;
+    color: findColorInvert($secondary);
+
+    p {
+        color: findColorInvert($secondary);
     }
+}
+
+.settings-body {
 
     .buttons {
 
@@ -16,7 +22,7 @@
 
             &.is-selected {
                 background-color: $secondary;
-                color: findColorInvert($secondary)
+                color: findColorInvert($secondary);
             }
         }
     }

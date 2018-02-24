@@ -1,0 +1,13 @@
+.stats {
+    * {
+        border-radius: 0;
+    }
+}
+
+.stats-body {
+    background-color: $secondary;
+
+    .title {
+        color: findColorInvert($secondary);
+    }
+}

@@ -180,7 +180,7 @@
 
             checkGameOver() {
                 if (this.updateGameProgress() === 100) {
-                    //this.showLoader();
+                    Event.$emit('showStats', true);
                 }
             },
 
