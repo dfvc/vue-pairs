@@ -1,9 +1,23 @@
+.settings {
+    * {
+        border-radius: 0;
+    }
+}
+
 .settings-body {
+    * {
+        border-radius: 0;
+    }
 
     .buttons {
 
         .button {
             flex: 1 1 auto;
+
+            &.is-selected {
+                background-color: $secondary;
+                color: findColorInvert($secondary)
+            }
         }
     }
 }

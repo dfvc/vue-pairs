@@ -6,7 +6,7 @@
                 <h2 class="subtitle">wow, the game never seen before...</h2>
             </div>
             <div class="game-header__middle--right">
-                <a class="button" @click="showSettings">
+                <a class="button is-dark" @click="showSettings">
                     <span class="icon is-medium"><i class="fas fa-cog"></i></span>
                 </a>
                 <a class="button" @click="restartGame">

@@ -1,14 +1,14 @@
 <template>
     <div class="modal" :class="{'is-active': displaySettings}">
         <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
+        <div class="modal-card settings">
+            <header class="modal-card-head settings-header">
                 <p class="modal-card-title">Game Settings</p>
             </header>
             <section class="modal-card-body settings-body">
                 <div class="buttons has-addons">
                     <span v-for="level in levels" @click="selectLevel(level)"
-                        class="button" :class="{'is-warning': level.selected}">
+                        class="button" :class="{'is-selected': level.selected}">
                         {{ level.name }}
                     </span>
                 </div>
