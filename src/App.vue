@@ -5,7 +5,8 @@
             <game-header></game-header>
         </header>
         <main>
-            <board :n-cards="16"></board>
+            <board></board>
+            <settings></settings>
         </main>
     </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
     import PageLoader from './components/PageLoader.vue';
     import GameHeader from './components/GameHeader.vue';
+    import Settings from './components/Settings.vue';
     import Board from './components/Board.vue';
 
     export default {
@@ -22,6 +24,7 @@
         components: {
             PageLoader,
             GameHeader,
+            Settings,
             Board
         }
     }

@@ -17,10 +17,6 @@
             CardHolder
         },
 
-        props: [
-            'nCards'
-        ],
-
         computed: {
             numCards() {
                 let nCards = this.nCards > 100 ? 100 : this.nCards;
@@ -36,6 +32,7 @@
 
         data() {
             return {
+                nCards: 16,
                 srcIconList: null,
                 iconList: null,
                 cards: []
@@ -48,7 +45,8 @@
             );
 
             Event.$on('restartGame',
-                () => {
+                (nCards) => {
+                    this.nCards = nCards !== undefined ? nCards : this.nCards;
                     this.initCards();
                     this.updateGameProgress();
                 }
