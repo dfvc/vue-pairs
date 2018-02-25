@@ -17,9 +17,14 @@
         </div>
 
         <div class="hero-foot game-header__bottom">
-            <progress class="progress is-large game-header__progress" :value="gameProgress" max="100"></progress>
-            <span class="tag is-info game-header__pairs-left">{{ gameProgress }}%</span>
-            <span class="tag is-link game-header__pairs-left">Pairs left: {{ pairsLeft }}</span>
+            <div class="game-header__bottom-timer" v-if="gameTime !== null">
+                <progress class="progress is-large" :value="gameTime" max="100"></progress>
+            </div>
+            <div class="game-header__bottom-progress">
+                <progress class="progress is-large" :value="gameProgress" max="100"></progress>
+                <span class="tag is-info">{{ gameProgress }}%</span>
+                <span class="tag is-link">Pairs left: {{ pairsLeft }}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -29,12 +34,17 @@
     export default {
         data() {
             return {
+                gameTime: null,
                 gameProgress: 0,
                 pairsLeft: 0
             }
         },
 
         created() {
+            Event.$on('updateGameTime',
+                (gameTime) => this.gameTime = gameTime
+            );
+
             Event.$on('updateGameProgress',
                 (gameProgress, pairsLeft) => {
                     this.gameProgress = gameProgress;

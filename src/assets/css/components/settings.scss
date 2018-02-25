@@ -8,23 +8,35 @@
     background-color: $secondary;
     color: findColorInvert($secondary);
 
-    p {
+    h2 {
         color: findColorInvert($secondary);
     }
 }
 
 .settings-body {
 
-    .buttons {
+    &__cards,
+    &__time {
 
-        .button {
-            flex: 1 1 auto;
+        &--title {
+            margin-bottom: 8px;
+        }
 
-            &.is-selected {
-                background-color: $secondary;
-                color: findColorInvert($secondary);
+        &--buttons {
+
+            .button {
+                flex: 1 1 auto;
+
+                &.is-selected {
+                    background-color: $secondary;
+                    color: findColorInvert($secondary);
+                }
             }
         }
+    }
+
+    &__cards {
+        margin-bottom: 20px;
     }
 }
 

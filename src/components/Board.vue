@@ -35,7 +35,11 @@
                 nCards: 16,
                 srcIconList: null,
                 iconList: null,
-                cards: []
+                cards: [],
+                totalFlips: 0,
+                time: null,
+                currentTime: null,
+                timer: null
             }
         },
 
@@ -45,10 +49,13 @@
             );
 
             Event.$on('restartGame',
-                (nCards) => {
+                (nCards, time) => {
                     this.nCards = nCards !== undefined ? nCards : this.nCards;
+                    this.time = time !== undefined ? time : this.time;
                     this.initCards();
                     this.updateGameProgress();
+                    this.startTimer();
+                    this.updateTotalFlips('reset');
                 }
             );
         },
@@ -61,6 +68,8 @@
             initBoard() {
                 this.fetchIcons().then(this.parseIcons).then(this.initCards).then(this.hideLoader);
                 this.updateGameProgress();
+                this.startTimer();
+                this.updateTotalFlips('reset');
             },
 
             fetchIcons() {
@@ -142,6 +151,7 @@
 
             flipCard(flippedCard) {
                 flippedCard.flipped = this.getFlippedCards().length < 2;
+                this.updateTotalFlips('add');
             },
 
             checkCardsPair(flippedCard) {
@@ -178,9 +188,41 @@
                 return gameProgress;
             },
 
+            startTimer() {
+                Event.$emit('updateGameTime', this.time);
+                clearInterval(this.timer);
+
+                if (this.time !== null) {
+                    this.currentTime = 100;
+                    Event.$emit('updateGameTime', this.currentTime);
+                    let decrement = 100 / this.time;
+
+                    this.timer = setInterval(
+                        () => {
+                            this.currentTime -= decrement;
+                            Event.$emit('updateGameTime', this.currentTime);
+                            if (this.currentTime < 0) {
+                                clearInterval(this.timer);
+                                Event.$emit('showStats', true, this.getScore());
+                            }
+                        }, 1000
+                    );
+                }
+            },
+
+            updateTotalFlips(mode) {
+                this.totalFlips = (mode === 'reset') ? 0 : this.totalFlips + 1;
+            },
+
+            getScore() {
+                let score = Math.ceil((this.getCheckedCards().length * 100) / this.totalFlips);
+                return isNaN(score) ? 0 : score;
+            },
+
             checkGameOver() {
                 if (this.updateGameProgress() === 100) {
-                    Event.$emit('showStats', true);
+                    clearInterval(this.timer);
+                    Event.$emit('showStats', true, this.getScore());
                 }
             },
 

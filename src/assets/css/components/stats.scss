@@ -1,13 +1,27 @@
 .stats {
     * {
         border-radius: 0;
+
+        color: findColorInvert($secondary);
     }
 }
 
 .stats-body {
     background-color: $secondary;
 
-    .title {
-        color: findColorInvert($secondary);
+    &__score {
+
+        &--value {
+            font-size: 100px;
+            line-height: 80px;
+        }
+    }
+
+    &__restart {
+        margin-top: 34px;
+
+        .button * {
+            color: $grey-dark;
+        }
     }
 }

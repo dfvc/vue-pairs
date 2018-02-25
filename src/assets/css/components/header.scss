@@ -24,27 +24,41 @@ main {
         }
     }
 
-    &__bottom {
+    &__bottom-timer {
+
+        .progress {
+            border-radius: 0;
+
+            &::-webkit-progress-value {
+                transition: width 1s linear;
+
+                background-color: $secondary-dark;
+            }
+
+            &.progress {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__bottom-progress {
         display: flex;
-    }
 
-    &__progress {
-        border-radius: 0;
+        .progress {
+            border-radius: 0;
 
-        &::-webkit-progress-value {
-            transition: width .25s ease;
+            &::-webkit-progress-value {
+                transition: width .25s ease;
 
-            background-color: $secondary;
+                background-color: $secondary;
+            }
+
+            &.progress {
+                margin-bottom: 0;
+            }
         }
 
-        &.progress {
-            margin-bottom: 0;
-        }
-    }
-
-    &__pairs-left {
-
-        &.tag {
+        .tag {
             border-radius: 0;
         }
     }
